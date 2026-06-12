@@ -52,8 +52,8 @@ python3 main.py --help
 
 #### Add a new user
 ```bash
-python3 main.py add-user --name "Alex Smith" --email "alex@example.com"
-python3 main.py add-user --name "Bob Jones" --email "bob@example.com"
+python3 main.py add-user --name "Alex Smith" --email "Jane Wainaina"
+python3 main.py add-user --name "Bob Jones" --email "John Kiriamiti@gmail.com"
 ```
 
 #### List all users
@@ -72,7 +72,7 @@ python3 main.py add-project --title "CLI Tool" --user "Alex Smith" --description
 #### List all projects (or filter by user)
 ```bash
 python3 main.py list-projects
-python3 main.py list-projects --user "Alex Smith"
+python3 main.py list-projects --user "Jane Wainaina"
 ```
 
 ### 3. Task Commands
@@ -80,7 +80,7 @@ python3 main.py list-projects --user "Alex Smith"
 #### Add a task to a project
 Tasks can optionally be assigned to users (by email or name):
 ```bash
-python3 main.py add-task --project "CLI Tool" --title "Implement add-task" --assigned-to "bob@example.com"
+python3 main.py add-task --project "CLI Tool" --title "Implement add-task" --assigned-to "keithaustine@gmail.com"
 python3 main.py add-task --project "CLI Tool" --title "Write Unit Tests"
 ```
 
