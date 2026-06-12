@@ -1,13 +1,13 @@
 [
     {
         "title": "Implement add-task",
-        "project_title": "CLI Tool",
+        "project_title": "Docker",
         "status": "Completed",
-        "assigned_to": "bob@example.com"
+        "assigned_to": "merlinpendragon@gmail.com"
     },
     {
         "title": "Write Unit Tests",
-        "project_title": "CLI Tool",
+        "project_title": "Azure tools",
         "status": "Pending",
         "assigned_to": null
     }

@@ -5,9 +5,9 @@ from models.project import Project
 from models.task import Task
 
 def test_person_validation():
-    p = Person("Alex Smith", "alex@example.com")
-    assert p.name == "Alex Smith"
-    assert p.email == "alex@example.com"
+    p = Person("John Kiriamiti", "johnkiriamniti@example.com")
+    assert p.name ==  "John Kiriamiti"
+    assert p.email == "johnkiriamniti@example.com"
 
     with pytest.raises(ValueError):
         p.name = "   "
@@ -20,17 +20,17 @@ def test_person_validation():
 
 def test_user_inheritance_and_id():
     User._id_counter = 0
-    u1 = User("Alex Smith", "alex@example.com")
-    u2 = User("Bob Jones", "bob@example.com")
+    u1 = User("Alex Smith", "johnkiriamniti@example.com")
+    u2 = User("Minerva Ekwe", "minervaekwe@example.com")
     assert u1.id == 1
     assert u2.id == 2
     assert isinstance(u1, Person)
     
-    u3 = User("Charlie Brown", "charlie@example.com", user_id=10)
+    u3 = User("Chipphirah Wambugu", "chipphirahwambugu@example.com", user_id=10)
     assert u3.id == 10
     assert User._id_counter == 10
     
-    u4 = User("Danny", "danny@example.com")
+    u4 = User("Danny", "danny@gmail.com")
     assert u4.id == 11
 
 def test_project_validation():
@@ -48,10 +48,10 @@ def test_project_validation():
         proj.title = ""
 
 def test_task_validation_and_completion():
-    task = Task("Implement CLI", "CLI Tool", status="Pending", assigned_to="alex@example.com")
+    task = Task("Implement CLI", "CLI Tool", status="Pending", assigned_to="merlinpendragon@gmail.com")
     assert task.title == "Implement CLI"
     assert task.status == "Pending"
-    assert task.assigned_to == "alex@example.com"
+    assert task.assigned_to == "merlinpendragon@gmail.com"
 
     task.complete()
     assert task.status == "Completed"
@@ -60,13 +60,13 @@ def test_task_validation_and_completion():
         task.status = "In Progress"
 
 def test_contributors():
-    proj = Project("CLI Tool", "A great project", "2026-06-30", "alex@example.com")
-    task1 = Task("Implement CLI", "CLI Tool", status="Pending", assigned_to="alex@example.com")
-    task2 = Task("Write Tests", "CLI Tool", status="Pending", assigned_to="bob@example.com")
+    proj = Project("CLI Tool", "A great project", "2026-06-30", "merlinpendragon@gmail.com")
+    task1 = Task("Implement CLI", "CLI Tool", status="Pending", assigned_to="merlinpendragon@gmail.com")
+    task2 = Task("Write Tests", "CLI Tool", status="Pending", assigned_to="charlenemuthoni@gmail.com")
     task3 = Task("Refactor", "CLI Tool", status="Pending", assigned_to=None)
     
     proj.add_task(task1)
     proj.add_task(task2)
     proj.add_task(task3)
     
-    assert proj.contributors == ["alex@example.com", "bob@example.com"]
+    assert proj.contributors == ["merlinpendragon@gmail.com", "johnkiriamniti@example.com"]

@@ -1,12 +1,27 @@
 [
     {
         "id": 1,
-        "name": "Alex Smith",
-        "email": "alex@example.com"
+        "name": "John Kiriamiti",
+        "email": "johnkiriamniti@example.com"
     },
     {
         "id": 2,
-        "name": "Bob Jones",
-        "email": "bob@example.com"
+        "name": "Minerva Ekwe",
+        "email": "minervaekwe@example.com"
+    },
+     {
+        "id": 3,
+        "name": "Chipphirah Wambugu",
+        "email": "chipphirahwambugu@example.com"
+    },
+     {
+        "id": 4,
+        "name": "Zaim Barasa",
+        "email": "zaimbarasa@example.com"
+    },
+     {
+        "id": 5,
+        "name": "Gweinevere madra",
+        "email": "gweineveremadre@example.com"
     }
 ]

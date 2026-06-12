@@ -26,9 +26,9 @@ def test_malformed_json_handling(tmp_path):
 def test_save_and_load_flow(tmp_path):
     dm = DataManager(str(tmp_path))
     
-    user = User("Alice", "alice@example.com")
-    project = Project("CLI Tracker", "A tracking tool", "2026-12-31", "alice@example.com")
-    task1 = Task("Write code", "CLI Tracker", "Pending", "alice@example.com")
+    user = User("Alice Maina", "alicemaina@gmail.com")
+    project = Project("CLI Tracker", "A tracking tool", "2026-12-31", "alicemaina@gmail.com")
+    task1 = Task("Write code", "CLI Tracker", "Pending", "alicemaina@gmail.com")
     task2 = Task("Test code", "CLI Tracker", "Pending", None)
     
     users = [user]
@@ -44,13 +44,13 @@ def test_save_and_load_flow(tmp_path):
     assert len(new_projects) == 1
     assert len(new_tasks) == 2
     
-    assert new_users[0].name == "Alice"
-    assert new_users[0].email == "alice@example.com"
+    assert new_users[0].name == "Alice Maina"
+    assert new_users[0].email == "alicemaina@gmail.com"
     assert new_projects[0].title == "CLI Tracker"
-    assert new_projects[0].owner_email == "alice@example.com"
+    assert new_projects[0].owner_email == "alicemaina@gmail.com"
     
     assert len(new_projects[0].tasks) == 2
     assert new_projects[0].tasks[0].title == "Write code"
-    assert new_projects[0].tasks[0].assigned_to == "alice@example.com"
+    assert new_projects[0].tasks[0].assigned_to == "alicemaina@gmail.com"
     assert new_projects[0].tasks[1].title == "Test code"
     assert new_projects[0].tasks[1].assigned_to is None
