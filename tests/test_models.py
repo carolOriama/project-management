@@ -12,7 +12,7 @@ def test_person_validation():
     with pytest.raises(ValueError):
         p.name = "   "
     with pytest.raises(ValueError):
-        p.name = "12345"  # name must contain at least one letter
+        p.name = "12345"
     with pytest.raises(ValueError):
         p.email = "invalidemail"
     with pytest.raises(TypeError):

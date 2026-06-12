@@ -5,25 +5,19 @@ from models.project import Project
 from models.task import Task
 
 class DataManager:
-    def __init__(self, data_dir: str):
+    def __init__(self, data_dir):
         self.data_dir = data_dir
         self.users_file = os.path.join(data_dir, "users.json")
         self.projects_file = os.path.join(data_dir, "projects.json")
         self.tasks_file = os.path.join(data_dir, "tasks.json")
 
     def load_data(self):
-        """
-        Loads and rebuilds all entities and their relationships.
-        Handles missing or malformed files by returning empty lists gracefully.
-        """
         users = []
         users_dict = {}
-        # 1. Load users
         try:
             if os.path.exists(self.users_file):
                 with open(self.users_file, "r") as f:
                     data = json.load(f)
-                    # Reset User id counter before loading from database
                     User._id_counter = 0
                     for item in data:
                         user = User(
@@ -37,7 +31,6 @@ class DataManager:
             users = []
             users_dict = {}
 
-        # 2. Load projects
         projects = []
         projects_dict = {}
         try:
@@ -57,7 +50,6 @@ class DataManager:
             projects = []
             projects_dict = {}
 
-        # 3. Load tasks
         tasks = []
         try:
             if os.path.exists(self.tasks_file):
@@ -71,7 +63,6 @@ class DataManager:
                             assigned_to=item.get("assigned_to")
                         )
                         tasks.append(task)
-                        # Link task to project
                         if task.project_title in projects_dict:
                             projects_dict[task.project_title].add_task(task)
         except (json.JSONDecodeError, KeyError, TypeError, ValueError):
@@ -80,9 +71,6 @@ class DataManager:
         return users, projects, tasks
 
     def save_data(self, users, projects, tasks):
-        """
-        Saves all user, project, and task data to their respective JSON files.
-        """
         os.makedirs(self.data_dir, exist_ok=True)
 
         users_data = []

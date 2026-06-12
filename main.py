@@ -20,7 +20,6 @@ def get_data_manager():
     return DataManager(data_dir)
 
 def find_user(users, query):
-    """Finds a user by email or name (case-insensitive)."""
     for u in users:
         if u.email.lower() == query.lower():
             return u

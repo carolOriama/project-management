@@ -4,23 +4,19 @@ from datetime import datetime
 
 console = Console()
 
-def print_success(message: str):
+def print_success(message):
     console.print(f"[bold green]✔[/bold green] {message}")
 
-def print_error(message: str):
+def print_error(message):
     console.print(f"[bold red]✘ Error:[/bold red] {message}")
 
-def print_warning(message: str):
+def print_warning(message):
     console.print(f"[bold yellow]⚠ Warning:[/bold yellow] {message}")
 
-def print_header(title: str):
+def print_header(title):
     console.print(Panel(f"[bold cyan]{title}[/bold cyan]", expand=False))
 
-def parse_date(date_str: str) -> str:
-    """
-    Parses and normalizes a date string to YYYY-MM-DD.
-    Raises ValueError if invalid.
-    """
+def parse_date(date_str):
     if not date_str:
         raise ValueError("Date cannot be empty")
     try:

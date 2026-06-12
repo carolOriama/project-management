@@ -1,18 +1,18 @@
 class Task:
     VALID_STATUSES = {"Pending", "Completed"}
 
-    def __init__(self, title: str, project_title: str, status: str = "Pending", assigned_to: str = None):
+    def __init__(self, title, project_title, status="Pending", assigned_to=None):
         self.title = title
         self.project_title = project_title
         self.status = status
         self.assigned_to = assigned_to
 
     @property
-    def title(self) -> str:
+    def title(self):
         return self._title
 
     @title.setter
-    def title(self, value: str):
+    def title(self, value):
         if not isinstance(value, str):
             raise TypeError("Task title must be a string")
         stripped = value.strip()
@@ -21,11 +21,11 @@ class Task:
         self._title = stripped
 
     @property
-    def project_title(self) -> str:
+    def project_title(self):
         return self._project_title
 
     @project_title.setter
-    def project_title(self, value: str):
+    def project_title(self, value):
         if not isinstance(value, str):
             raise TypeError("Project title must be a string")
         stripped = value.strip()
@@ -34,11 +34,11 @@ class Task:
         self._project_title = stripped
 
     @property
-    def status(self) -> str:
+    def status(self):
         return self._status
 
     @status.setter
-    def status(self, value: str):
+    def status(self, value):
         if not isinstance(value, str):
             raise TypeError("Status must be a string")
         capitalized = value.strip().capitalize()
@@ -47,11 +47,11 @@ class Task:
         self._status = capitalized
 
     @property
-    def assigned_to(self) -> str:
+    def assigned_to(self):
         return self._assigned_to
 
     @assigned_to.setter
-    def assigned_to(self, value: str):
+    def assigned_to(self, value):
         if value is None:
             self._assigned_to = None
             return
@@ -68,9 +68,9 @@ class Task:
     def complete(self):
         self.status = "Completed"
 
-    def __str__(self) -> str:
+    def __str__(self):
         assignee = self.assigned_to if self.assigned_to else "Unassigned"
         return f"Task '{self.title}' [{self.status}] (Assigned to: {assignee})"
 
-    def __repr__(self) -> str:
+    def __repr__(self):
         return f"Task(title={self.title!r}, status={self.status!r}, assigned_to={self.assigned_to!r})"
